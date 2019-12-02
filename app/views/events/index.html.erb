@@ -1,11 +1,8 @@
-<ul>
-  <% @events.each do |event| %>
-    <li>
-      Name:  <%= event.name %><br>
-      Price: <%= event.price %><br>
-      Place: <%= event.place %><br>
-      Date: <%= event.event_date %><br>
-      Description: <%= event.description %><br>
-    </li>
-  <% end %>
-</ul>
+<% @events.each do |event| %>
+  <div class="well">
+    <div class="event_name"><%= event.name %></div>
+    <div class="pull-right"><%= event_price(event.price) %></div>
+    <%= event_date(event.event_date) %> at <%= event.place %><br>
+    <p><%= truncate(event.description, length: 30) %></p>
+  </div>
+<% end %>
