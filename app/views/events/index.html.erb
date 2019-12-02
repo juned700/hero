@@ -1,6 +1,5 @@
 <ul>
-  <li>Rails Training</li>
-  <li>Ruby Training</li>
-  <li>SQL Training</li>
-  <li>Rails Hackthon</li>
+  <% @events.each do |event| %>
+    <li><%= event %></li>
+  <% end %>
 </ul>
