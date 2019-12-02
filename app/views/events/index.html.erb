@@ -1,5 +1,11 @@
 <ul>
   <% @events.each do |event| %>
-    <li><%= event %></li>
+    <li>
+      Name:  <%= event.name %><br>
+      Price: <%= event.price %><br>
+      Place: <%= event.place %><br>
+      Date: <%= event.event_date %><br>
+      Description: <%= event.description %><br>
+    </li>
   <% end %>
 </ul>
