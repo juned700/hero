@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get "/events" => "events#index", as: :events
   get "/events/:id" => "events#show", as: :event
+
+  root :to => "home#index"
 end
