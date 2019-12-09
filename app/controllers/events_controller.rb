@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
-    event_params = params.require(:event).permit(:name, :price, :place, :event_date, :description)
+    event_params = params.require(:event).permit(:name, :price, :place, :event_date, :description, :image_file_name, :spot)
 
     @event.update(event_params)
 
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    event_params = params.require(:event).permit(:name, :price, :place, :event_date, :description)
+    event_params = params.require(:event).permit(:name, :price, :place, :event_date, :description, :image_file_name, :spot)
     @event = Event.new(event_params)
     @event.save
 

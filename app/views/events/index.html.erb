@@ -4,9 +4,14 @@
 
 <% @events.each do |event| %>
   <div class="well">
+    <div class="event_image">
+      <%= image_tag event.image_file_name %>
+    </div>
     <div class="event_name"><%= link_to event.name, event_path(event.id) %></div>
     <div class="pull-right"><%= event_price(event.price) %></div>
     <%= event_date(event.event_date) %> at <%= event.place %><br>
+
+    <span>Available : <%= pluralize(event.spot, 'Spot') %></span>
     <p><%= truncate(event.description, length: 30) %></p>
 
     <%= link_to 'Delete', destroy_event_path(event), method: :delete %>
