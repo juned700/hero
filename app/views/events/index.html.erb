@@ -1,8 +1,14 @@
+<h1>List Events</h1>
+
+<%= link_to 'New', new_event_path, class: 'btn btn-primary' %>
+
 <% @events.each do |event| %>
   <div class="well">
     <div class="event_name"><%= link_to event.name, event_path(event.id) %></div>
     <div class="pull-right"><%= event_price(event.price) %></div>
     <%= event_date(event.event_date) %> at <%= event.place %><br>
     <p><%= truncate(event.description, length: 30) %></p>
+
+    <%= link_to 'Delete', destroy_event_path(event), method: :delete %>
   </div>
 <% end %>
