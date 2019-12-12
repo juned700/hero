@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   # post '/events' => "events#create"
   # delete "/events/:id" => "events#destroy", as: :destroy_event
 
-  resources :events
-
-  resources :registrations
+  resources :events do
+    resources :registrations
+  end
 
   root :to => "home#index"
 end
