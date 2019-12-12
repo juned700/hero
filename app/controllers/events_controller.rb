@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   #before_action :get_event, excpet: [:new, :create, :index]
 
   def index
-    @events = Event.all
+    @events = Event.upcoming
   end
 
   def show
