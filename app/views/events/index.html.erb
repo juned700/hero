@@ -14,6 +14,6 @@
     <span>Available : <%= pluralize(event.spot, 'Spot') %></span>
     <p><%= truncate(event.description, length: 30) %></p>
 
-    <%= link_to 'Delete', destroy_event_path(event), method: :delete %>
+    <%= link_to 'Delete', event_path(event), method: :delete %>
   </div>
 <% end %>
