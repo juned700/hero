@@ -1,0 +1,7 @@
+<h1>Registrations</h1>
+
+<ul>
+  <% @registrations.each do |r| %>
+    <li><%= r.name %> for <%= r.event.name %></li>
+  <% end %>
+</ul>

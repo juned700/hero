@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
   resources :events
 
+  resources :registrations
+
   root :to => "home#index"
 end
