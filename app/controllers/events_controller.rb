@@ -13,9 +13,12 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update(event_params)
-
-    redirect_to event_path(@event)
+    if @event.update(event_params)
+      redirect_to event_path(@event), notice: 'Event has successfully updated!'
+    else
+      flash.now[:error] = "Some error occured!"
+      render :edit
+    end
   end
 
   def new
@@ -24,14 +27,16 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
-
-    redirect_to event_path(@event)
+    if @event.save
+      redirect_to event_path(@event), notice: 'Event has successfully created!'
+    else
+      render :new
+    end
   end
 
   def destroy
     @event.destroy
-    redirect_to events_path
+    redirect_to events_path, notice: 'Event has been successfully deleted!'
   end
 
   private
