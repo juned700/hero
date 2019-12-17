@@ -1,7 +1,7 @@
-<h1>Registrations</h1>
+<h1>Registrations for <%= @event.name %></h1>
 
 <ul>
   <% @registrations.each do |r| %>
-    <li><%= r.name %> for <%= r.event.name %></li>
+    <li><%= r.name %> came from <%= r.how_heard %></li>
   <% end %>
 </ul>

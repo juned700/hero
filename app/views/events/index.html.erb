@@ -15,5 +15,6 @@
     <p><%= truncate(event.description, length: 30) %></p>
 
     <%= link_to 'Delete', event_path(event), method: :delete %>
+    <%= link_to "Who's Registered", event_registrations_path(event) %>
   </div>
 <% end %>
