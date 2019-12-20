@@ -1,0 +1,33 @@
+<h1>Registers for `<%= @event.name %>`</h1>
+
+<%= form_with(model: [@event, @registration], local: true) do |f| %>
+
+  <% if @registration.errors.any? %>
+    <div class="error">
+      <h1><%= @registration.errors.count %> Error has been occured </h1>
+      <ul>
+        <% @registration.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: "form-control",  placeholder: 'Enter your name' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control",  placeholder: 'Enter your email' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :how_heard %>
+    <%= f.select :how_heard, Registration::HOW_HEARD, { prompt: 'Select how heard' }, { class: "form-control" } %>
+    <%#= f.text_field :how_heard, class: "form-control",  placeholder: 'Enter how heard' %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

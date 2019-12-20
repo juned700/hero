@@ -13,4 +13,9 @@ class Event < ApplicationRecord
     where("event_date < ?", Time.now).order('event_date DESC')
   end
 
+  def sold_out?
+    availability = spot - registrations.persisted_records.size
+    availability.zero? || availability < 0
+  end
+
 end
