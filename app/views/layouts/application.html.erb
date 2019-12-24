@@ -49,11 +49,21 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Events", events_path  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
+            <li><%= link_to "Users", users_path %></li>
             <li><%= link_to "Link3", "/path3"  %></li>
           </ul>
+
+          <ul class="nav navbar-nav pull-right">
+            <li><%= link_to 'SignUp', signup_path %></li>
+          </ul>
+        </div>
+
+        <div class="pull-right">
+          
         </div>
       </div>
+
+      
     </div>
 
     <div class="container">

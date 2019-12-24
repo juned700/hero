@@ -13,5 +13,8 @@ Rails.application.routes.draw do
     resources :registrations
   end
 
+  resources :users
+  get "/signup" => 'users#new'
+
   root :to => "home#index"
 end

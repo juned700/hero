@@ -1,0 +1,8 @@
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+  <div class="well">
+    <%= link_to user.name, user %>
+    came at <%= time_ago_in_words(user.created_at) %> ago
+  </div>
+<% end %>
