@@ -54,7 +54,14 @@
           </ul>
 
           <ul class="nav navbar-nav pull-right">
-            <li><%= link_to 'SignUp', signup_path %></li>
+            <% if current_user %>
+            
+              <li><%= link_to current_user.name, current_user %></li>
+              <li><%= link_to 'SignOut', session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'SignIn', new_session_path %></li>
+              <li><%= link_to 'SignUp', signup_path %></li>
+            <% end %>
           </ul>
         </div>
 

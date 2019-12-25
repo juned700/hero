@@ -5,6 +5,7 @@ class Event < ApplicationRecord
 
   validates :spot, numericality: { only_integer: true }
 
+  # Class method
   def self.upcoming
     where("event_date >= ?", Time.now).order('event_date')
   end
