@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   before_action :get_event, only: [:show, :edit, :update, :destroy]
   #before_action :get_event, excpet: [:new, :create, :index]
+  before_action :require_signin, except: [:index, :show]
+  before_action :require_admin_user, except: [:index, :show]
 
   def index
     @events = Event.upcoming
@@ -46,5 +48,13 @@ class EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:name, :price, :place, :event_date, :description, :image_file_name, :spot)
+    end
+
+    def require_admin_user
+      unless admin_user?
+        flash[:error] = "Only Admin user can create or udpate an event."
+
+        redirect_to root_path
+      end
     end
 end

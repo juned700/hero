@@ -2,6 +2,8 @@
 <%= @user.email %>
 
 <br><br>
-<%= link_to "Edit Account", edit_user_path(@user), class: 'btn btn-primary btn-sm' %>
+<% if is_currect_user?(@user) %>
+  <%= link_to "Edit Account", edit_user_path(@user), class: 'btn btn-primary btn-sm' %>
 
-<%= link_to "Delete Account", user_path(@user), method: :delete, class: 'btn btn-danger btn-sm' %>
+  <%= link_to "Delete Account", user_path(@user), method: :delete, class: 'btn btn-danger btn-sm' %>
+<% end %>
