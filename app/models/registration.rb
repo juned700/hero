@@ -1,7 +1,8 @@
 class Registration < ApplicationRecord
   belongs_to :event
+  belongs_to :user
 
-  validates_presence_of :name, :email, :how_heard
+  validates_presence_of :how_heard
 
   validates :how_heard, inclusion: { in: %w(Twitter Facebook Friends NewsPaper),
     message: "%{value} is not a valid HOW_HEARD" }, if: Proc.new{ |obj| !obj.how_heard.blank? }

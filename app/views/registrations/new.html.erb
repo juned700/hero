@@ -14,16 +14,6 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, class: "form-control",  placeholder: 'Enter your name' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control",  placeholder: 'Enter your email' %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :how_heard %>
     <%= f.select :how_heard, Registration::HOW_HEARD, { prompt: 'Select how heard' }, { class: "form-control" } %>
     <%#= f.text_field :how_heard, class: "form-control",  placeholder: 'Enter how heard' %>

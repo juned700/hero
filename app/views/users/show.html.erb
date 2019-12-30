@@ -1,6 +1,21 @@
 <h1><%= @user.name %></h1>
 <%= @user.email %>
 
+<% if @registrations.present? %>
+  <h1>Registrations</h1>
+  <% @registrations.each do |r| %>
+    <div class="well">
+      <div class="image">
+        <%= image_tag r.event.image_file_name %>
+      </div>
+      <%= link_to r.event.name, r.event %>
+      <div class="pull-right">
+        <%= event_date(r.event.event_date) %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 <br><br>
 <% if is_currect_user?(@user) %>
   <%= link_to "Edit Account", edit_user_path(@user), class: 'btn btn-primary btn-sm' %>

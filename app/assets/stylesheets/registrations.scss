@@ -6,3 +6,13 @@
   font-weight: bold;
   color: red;
 }
+
+.image {
+  width: fit-content;
+  display: inline;
+  
+  img{
+    width: 50px;
+    padding-right: 10px; 
+  }
+}
