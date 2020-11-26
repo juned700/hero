@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @registrations = @user.registrations
+    @events = @user.liked_events
   end
 
   def new

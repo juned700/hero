@@ -1,6 +1,11 @@
 class Event < ApplicationRecord
-  has_many :registrations
-  
+  has_many :registrations, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :likers, through: :likes, source: :user
+
+  has_many :events_categories, dependent: :destroy
+  has_many :categories, through: :events_categories
+
   validates :name, :place, :event_date, :spot, :image_file_name, presence: true
 
   validates :spot, numericality: { only_integer: true }

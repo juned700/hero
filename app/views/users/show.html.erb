@@ -16,6 +16,19 @@
   <% end %>
 <% end %>
 
+
+<% if @events.present? %>
+  <h1>Liked Events</h1>
+  <% @events.each do |event| %>
+    <div class="well user_like">
+      <div class="image">
+        <%= image_tag event.image_file_name %>
+      </div>
+      <%= link_to event.name, event %>
+    </div>
+  <% end %>
+<% end %>
+
 <br><br>
 <% if is_currect_user?(@user) %>
   <%= link_to "Edit Account", edit_user_path(@user), class: 'btn btn-primary btn-sm' %>

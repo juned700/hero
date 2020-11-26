@@ -10,11 +10,18 @@
     <div class="event_name"><%= link_to event.name, event_path(event.id) %></div>
     <div class="pull-right"><%= event_price(event.price) %></div>
     <%= event_date(event.event_date) %> at <%= event.place %><br>
-
+     
     <span>Available : <%= pluralize(event.spot, 'Spot') %></span>
     <p><%= truncate(event.description, length: 30) %></p>
 
     <%= link_to 'Delete', event_path(event), method: :delete %>
     <%= link_to "Who's Registered", event_registrations_path(event) %>
+
+    <div class="like">
+      <%= event.likes.count %>
+      <%= like_unlike_button(event) if current_user %>
+    </div>
+
+    
   </div>
 <% end %>
